@@ -1,0 +1,11 @@
+---
+services:
+  armagetron-server:
+    image: cwadley/armagetron:latest
+    platform: linux/amd64
+    restart: unless-stopped
+    volumes:
+      - $PWD/armagetron:/etc/armagetronad
+    ports:
+      - "4534:4534/udp"
+

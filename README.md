@@ -2,15 +2,18 @@
 Docker image for Armagetron Advanced
 
 ## Usage
-### Basic
+### Docker Compose
 ```
-docker run -d -p 4534:4534/udp --name armagetron-server cwadley/armagetron
+docker compose up -d
 ```
 
-### Custom configuration
-[Documentation on configuration files](http://wiki.armagetronad.org/index.php?title=Server_Administration_Guide#Examples)
+The configuration directory, by default, is ./armagetron. [Documentation on configuration files](http://wiki.armagetronad.org/index.php?title=Server_Administration_Guide#Examples)
+
+### Manual
+
 ```
-docker run -d -p 4534:4534/udp --name armagetron-server \
-  -v /etc/armagetron:/etc/armagetronad \
+docker run -d --platform linux/amd64 \
+  -p 4534:4534/udp --name armagetron-server \
+  -v $PWD/armagetron:/etc/armagetronad \
   cwadley/armagetron
 ```

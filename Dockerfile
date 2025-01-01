@@ -1,7 +1,7 @@
-FROM ubuntu:focal
+FROM ubuntu:noble
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
-    add-apt-repository ppa:armagetronad-dev && \
+    add-apt-repository ppa:armagetronad-dev/ppa && \
     apt-get update && \
     apt-get install -y armagetronad-dedicated && \
     apt-get clean && \
@@ -11,5 +11,5 @@ RUN apt-get update && \
 
 USER armagetron
 WORKDIR /home/armagetron
-CMD /usr/games/armagetronad-dedicated
+CMD /usr/games/armagetronad-dedicated --configdir /etc/armagetronad
 EXPOSE 4534/udp
